@@ -13,7 +13,7 @@ public class InteractionBase : MonoBehaviour
     protected bool doInteract = false;
 
 
-    protected void Awake()
+    public virtual void Awake()
     {
         input = new PlayerInput();
     }

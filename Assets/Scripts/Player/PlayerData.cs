@@ -3,10 +3,11 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
 
+    public float lookSpeed = 5;
     public bool hasKey = false;
     public bool hasWallet = false;
 
-    PlayerData instance;
+    public static PlayerData instance;
 
     private void Awake()
     {

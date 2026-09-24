@@ -1,12 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : InteractionBase
 {
 
+    [SerializeField] string toScene;
 
     public override void Interact()
     {
-        Debug.Log("poop");
+        SceneManager.LoadScene(toScene);
     }
 
 

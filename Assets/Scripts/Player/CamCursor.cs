@@ -21,6 +21,9 @@ public class CamCursor : MonoBehaviour
         input = new PlayerInput();
         Cursor.lockState = CursorLockMode.Locked;
         canLook = true;
+
+        if(lookSpeed != PlayerData.instance.lookSpeed) lookSpeed = PlayerData.instance.lookSpeed;
+
     }
 
     private void OnEnable()
@@ -77,12 +80,14 @@ public class CamCursor : MonoBehaviour
     public void IncreaseLookSpeed()
     {
         lookSpeed++;
+        PlayerData.instance.lookSpeed = lookSpeed;
         if (lookSpeed >= 20) lookSpeed = 20;
     }
 
     public void DecreaseLookSpeed()
     {
         lookSpeed--;
+        PlayerData.instance.lookSpeed = lookSpeed;
         if (lookSpeed <= 1) lookSpeed = 1;
     }
 
