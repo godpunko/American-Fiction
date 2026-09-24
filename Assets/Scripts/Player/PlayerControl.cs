@@ -11,6 +11,8 @@ public class PlayerControl : MonoBehaviour
     float moveSpeed;
     float rotationY = 0f;
     Rigidbody rb;
+    AudioSource audioSource;
+    int stepCount = 0;
 
 
     private void Awake()
@@ -18,6 +20,7 @@ public class PlayerControl : MonoBehaviour
         input = new PlayerInput();
         moveSpeed = walkSpeed;
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -57,8 +60,14 @@ public class PlayerControl : MonoBehaviour
     private void Move()
     {
 
+        if (!cam.canLook) return;
+
         Vector2 movement = input.player.Move.ReadValue<Vector2>();
-        //Vector3 newMovement = new Vector3(movement.x, 0, movement.y);
+
+        stepCount++;
+        if (movement == Vector2.zero) stepCount = 0;
+        if(stepCount == 1) audioSource.Play();
+        if (stepCount >= 550 - moveSpeed) stepCount = 0;
 
         Vector3 newMovement = transform.right * movement.x + transform.forward * movement.y;
 

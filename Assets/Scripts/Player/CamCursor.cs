@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class CamCursor : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class CamCursor : MonoBehaviour
 
     private PlayerInput input;
     public bool canLook;
+
+    [SerializeField] GameObject pause;
+    [SerializeField] TMP_Text text;
 
     void Awake()
     {
@@ -33,18 +37,22 @@ public class CamCursor : MonoBehaviour
     void Update()
     {
        
-        if(input.player.EscapeWindow.WasPressedThisFrame()) 
+        if(input.player.EscapeWindow.WasPressedThisFrame() && canLook) 
         { 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            canLook = false; 
+            canLook = false;
+            pause.SetActive(true);
         }
-        if (input.player.ClickBackIn.WasPressedThisFrame()) 
+        else if ((input.player.EscapeWindow.WasPressedThisFrame() && !canLook) || input.player.ClickBackIn.WasPressedThisFrame()) 
         { 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            canLook = true; 
+            canLook = true;
+            pause.SetActive(false);
         }
+
+        text.text = $"LOOK SPEED\n\n{lookSpeed}";
 
         Look();
 
@@ -64,6 +72,18 @@ public class CamCursor : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
 
+    }
+
+    public void IncreaseLookSpeed()
+    {
+        lookSpeed++;
+        if (lookSpeed >= 20) lookSpeed = 20;
+    }
+
+    public void DecreaseLookSpeed()
+    {
+        lookSpeed--;
+        if (lookSpeed <= 1) lookSpeed = 1;
     }
 
 }
