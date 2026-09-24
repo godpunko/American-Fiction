@@ -65,6 +65,7 @@ public class Follow : MonoBehaviour
         target = targ;
         maxDist = maxD;
         moveSpeed = speed;
+        self.SetDestination(target.transform.position);
 
     }
 
@@ -92,6 +93,7 @@ public class Follow : MonoBehaviour
             yield return null;
         }
 
+        AdjustTarget(player.gameObject, maxDist, moveSpeed);
         distracted = false;
 
     }
