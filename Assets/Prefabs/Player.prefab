@@ -132,7 +132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
   cam: {fileID: 544118736519470349}
   walkSpeed: 200
-  sprintSpeed: 450
+  sprintSpeed: 380
+  hasKey: 0
+  hasWallet: 0
 --- !u!54 &399084063538909131
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -408,7 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CamCursor
   lookSpeed: 5
-  lookYlim: 45
+  lookYlim: 50
   canLook: 0
   pause: {fileID: 0}
   text: {fileID: 0}

@@ -14,6 +14,9 @@ public class PlayerControl : MonoBehaviour
     AudioSource audioSource;
     int stepCount = 0;
 
+    public bool hasKey;
+    public bool hasWallet;
+
 
     private void Awake()
     {
@@ -66,8 +69,12 @@ public class PlayerControl : MonoBehaviour
 
         stepCount++;
         if (movement == Vector2.zero) stepCount = 0;
-        if(stepCount == 1) audioSource.Play();
-        if (stepCount >= 550 - moveSpeed) stepCount = 0;
+        if (stepCount == 1)
+        {
+            audioSource.Stop(); 
+            audioSource.Play();
+        }
+        if (stepCount >= 450 - moveSpeed) stepCount = 0;
 
         Vector3 newMovement = transform.right * movement.x + transform.forward * movement.y;
 
