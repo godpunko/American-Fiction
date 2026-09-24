@@ -12,6 +12,11 @@ public class Key : InteractionBase
     public override void Awake()
     {
         base.Awake();
+        
+    }
+
+    private void Start()
+    {
         if (PlayerData.instance.hasKey) Destroy(gameObject);
     }
 
@@ -26,6 +31,7 @@ public class Key : InteractionBase
 
         PlayerData.instance.hasKey = true;
         greg.sad += 1;
+        PlayerData.instance.gregSad += 1;
         Debug.Log("Key Aquired");
 
         doInteract = false;

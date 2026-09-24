@@ -25,6 +25,13 @@ public class Follow : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+
+        sad = PlayerData.instance.gregSad;
+
+    }
+
     private void Update()
     {
 
