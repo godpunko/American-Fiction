@@ -30,8 +30,7 @@ public class Key : InteractionBase
         audioSource.Play();
 
         PlayerData.instance.hasKey = true;
-        greg.sad += 1;
-        PlayerData.instance.gregSad += 1;
+        greg.UpdateSad(2);
         Debug.Log("Key Aquired");
 
         doInteract = false;

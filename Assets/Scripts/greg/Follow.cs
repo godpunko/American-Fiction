@@ -11,6 +11,7 @@ public class Follow : MonoBehaviour
     [SerializeField] GameObject target;
 
     [SerializeField] NavMeshAgent self;
+    [SerializeField] float distractRunSpeed = 40;
 
     bool distracted;
     public int sad;
@@ -29,6 +30,9 @@ public class Follow : MonoBehaviour
     {
 
         sad = PlayerData.instance.gregSad;
+        moveSpeed += sad;
+        maxDist -= (sad * 5);
+        if(maxDist< 50) maxDist = 50;
 
     }
 
@@ -38,6 +42,20 @@ public class Follow : MonoBehaviour
         if (distracted) { return; }
 
         self.SetDestination(target.transform.position);
+
+    }
+
+    public void UpdateSad(int sadness)
+    {
+
+        sad += sadness;
+        PlayerData.instance.gregSad = sad;
+        moveSpeed = 5 + sad;
+        maxDist -= 5;
+        if (maxDist < 50) maxDist = 50;
+
+        self.speed = moveSpeed;
+        self.stoppingDistance = maxDist;
 
     }
 
