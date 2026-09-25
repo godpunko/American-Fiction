@@ -14,8 +14,7 @@ public class PlayerControl : MonoBehaviour
     AudioSource audioSource;
     int stepCount = 0;
 
-    public bool hasKey;
-    public bool hasWallet;
+    public bool locked;
 
 
     private void Awake()
@@ -38,6 +37,9 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
+
+        if (locked) return;
+
         if (input.player.Sprint.IsPressed()) moveSpeed = sprintSpeed;
         else moveSpeed = walkSpeed;
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Follow : MonoBehaviour
@@ -12,6 +13,8 @@ public class Follow : MonoBehaviour
 
     [SerializeField] NavMeshAgent self;
     [SerializeField] float distractRunSpeed = 40;
+    [SerializeField] GameObject distractionCanvas;
+    [SerializeField] Image distractionImage;
 
     bool distracted;
     public int sad;
@@ -63,22 +66,24 @@ public class Follow : MonoBehaviour
     {
 
         target = targ;
-        maxDist = maxD;
-        moveSpeed = speed;
+        self.speed = speed;
+        self.stoppingDistance = maxD;
         self.SetDestination(target.transform.position);
 
     }
 
     public void SetDistraction(float time)
     {
-
-        distracted = true;
+        
         StartCoroutine(distract(time));
 
     }
 
     IEnumerator distract(float time)
     {
+
+        distracted = true;
+        distractionCanvas.SetActive(true);
 
         float timePassed = 0f;
 
@@ -88,12 +93,13 @@ public class Follow : MonoBehaviour
             timePassed += Time.deltaTime;
 
             float passPerc = timePassed / time;
-            //pie chart above head
+            distractionImage.fillAmount = 1 - passPerc;
 
             yield return null;
         }
 
         AdjustTarget(player.gameObject, maxDist, moveSpeed);
+        distractionCanvas.SetActive(false);
         distracted = false;
 
     }
