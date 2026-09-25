@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerData : MonoBehaviour
 {
@@ -20,6 +21,16 @@ public class PlayerData : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        if (SceneManager.GetActiveScene().name == "IntroScene") 
+        {
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Destroy(gameObject);
+            
+        }
+
     }
 
 }

@@ -12,9 +12,10 @@ public class Follow : MonoBehaviour
     [SerializeField] GameObject target;
 
     [SerializeField] NavMeshAgent self;
-    [SerializeField] float distractRunSpeed = 40;
+    [SerializeField] float distractRunSpeed = 150;
     [SerializeField] GameObject distractionCanvas;
     [SerializeField] Image distractionImage;
+    [SerializeField] bool rabid;
 
     public bool distracted;
     public int sad;
@@ -24,6 +25,16 @@ public class Follow : MonoBehaviour
 
         self.speed = moveSpeed;
         self.stoppingDistance = maxDist;
+
+        //yes spaghetti
+        if(rabid)
+        {
+
+            self.speed = 200;
+            self.acceleration = 200;
+            self.stoppingDistance = 0;
+
+        }
 
         target = player.gameObject;
 
@@ -69,7 +80,8 @@ public class Follow : MonoBehaviour
     {
 
         target = targ;
-        self.speed = distractRunSpeed;
+        self.speed = speed;
+        self.acceleration = speed;
         self.stoppingDistance = maxD;
         self.SetDestination(target.transform.position);
 
