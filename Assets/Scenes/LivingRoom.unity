@@ -334,6 +334,10 @@ PrefabInstance:
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7200140384719850588, guid: c8d969e26de012b4f9a6917905d9b5aa, type: 3}
+      propertyPath: distractRunSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200140384719850588, guid: c8d969e26de012b4f9a6917905d9b5aa, type: 3}
       propertyPath: distractionImage
       value: 
       objectReference: {fileID: 189990107}
@@ -1001,7 +1005,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 48cbf4712a784cf42820f7a478096ccc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2057,6 +2061,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7490632608653822297, guid: 20fd4332db206384fbe40c886f3f9c23, type: 3}
+      propertyPath: far clip plane
+      value: 4000
+      objectReference: {fileID: 0}
     - target: {fileID: 7794845894906380819, guid: 20fd4332db206384fbe40c886f3f9c23, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2387,7 +2395,7 @@ MonoBehaviour:
   player: {fileID: 1843886010}
   activeOnTouch: 0
   greg: {fileID: 1622619365}
-  distractLength: 10
+  distractLength: 36
   tv: {fileID: 601546724}
 --- !u!65 &1943588916
 BoxCollider:
@@ -2404,7 +2412,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

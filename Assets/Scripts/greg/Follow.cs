@@ -6,7 +6,7 @@ using System.Collections;
 public class Follow : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed = 5;
+    [SerializeField] float moveSpeed = 10;
     [SerializeField] float maxDist = 300;
     [SerializeField] PlayerControl player;
     [SerializeField] GameObject target;
@@ -66,7 +66,7 @@ public class Follow : MonoBehaviour
     {
 
         target = targ;
-        self.speed = speed;
+        self.speed = distractRunSpeed;
         self.stoppingDistance = maxD;
         self.SetDestination(target.transform.position);
 
