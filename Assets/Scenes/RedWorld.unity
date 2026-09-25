@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 69995957}
   - component: {fileID: 69995958}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -583,6 +583,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &1346485566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7146283107117816752, guid: 7e3ba46d5ba57db42b084e91a4cd244d, type: 3}
+  m_PrefabInstance: {fileID: 1346485563}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1417412404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -856,7 +867,7 @@ PrefabInstance:
     - target: {fileID: 544118736519470349, guid: 20fd4332db206384fbe40c886f3f9c23, type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 1346485565}
+      objectReference: {fileID: 1346485566}
     - target: {fileID: 544118736519470349, guid: 20fd4332db206384fbe40c886f3f9c23, type: 3}
       propertyPath: pause
       value: 

@@ -9,8 +9,9 @@ public class Final : InteractionBase
     [SerializeField] string finalPlace;
     [SerializeField] AudioClip good;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         audioSource = GetComponent<AudioSource>();
     }
 
