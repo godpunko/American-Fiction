@@ -16,7 +16,7 @@ public class Follow : MonoBehaviour
     [SerializeField] GameObject distractionCanvas;
     [SerializeField] Image distractionImage;
 
-    bool distracted;
+    public bool distracted;
     public int sad;
 
     private void Awake()
@@ -52,6 +52,9 @@ public class Follow : MonoBehaviour
     {
 
         sad += sadness;
+
+        if (!distracted) sad += 10;
+
         PlayerData.instance.gregSad = sad;
         moveSpeed = 5 + sad;
         maxDist -= 5;
@@ -101,6 +104,8 @@ public class Follow : MonoBehaviour
         AdjustTarget(player.gameObject, maxDist, moveSpeed);
         distractionCanvas.SetActive(false);
         distracted = false;
+
+        if(Vector3.Distance(transform.position,player.transform.position) > 100) UpdateSad(0);
 
     }
 

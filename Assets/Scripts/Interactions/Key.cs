@@ -5,6 +5,7 @@ public class Key : InteractionBase
 {
 
     [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip good;
     [SerializeField] Follow greg;
     [SerializeField] BoxCollider bc;
     bool can = true;
@@ -27,10 +28,11 @@ public class Key : InteractionBase
 
         can = false;
 
-        audioSource.Play();
+        
 
         PlayerData.instance.hasKey = true;
-        greg.UpdateSad(2);
+        if (!greg.distracted) { greg.UpdateSad(2); audioSource.Play(); }
+        else audioSource.PlayOneShot(good);
         Debug.Log("Key Aquired");
 
         doInteract = false;

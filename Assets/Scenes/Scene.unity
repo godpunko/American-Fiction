@@ -1427,6 +1427,7 @@ MonoBehaviour:
   lookSpeed: 5
   hasKey: 0
   hasWallet: 0
+  gregSad: 0
 --- !u!4 &1258114176
 Transform:
   m_ObjectHideFlags: 0
@@ -1890,6 +1891,7 @@ MonoBehaviour:
   player: {fileID: 994761730}
   activeOnTouch: 0
   audioSource: {fileID: 1664728153}
+  good: {fileID: 8300000, guid: 4bc3dea5458f97248884ebe8131b5e99, type: 3}
   greg: {fileID: 193614988}
   bc: {fileID: 1664728152}
 --- !u!65 &1664728152
